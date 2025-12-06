@@ -41,8 +41,8 @@ export async function fund(): Promise<void> {
       walletClient = createWalletClient({
         transport: custom(window.ethereum),
       })
-      const addresses = await walletClient.requestAddresses()
-      const account: string = addresses[0]
+      const addresses: Address[] = await walletClient.requestAddresses()
+      const account: Address = addresses[0]
       const currentChain = await getCurrentChain(walletClient)
 
       console.log("Processing transaction...")
@@ -96,8 +96,8 @@ export async function withdraw(): Promise<void> {
       publicClient = createPublicClient({
         transport: custom(window.ethereum),
       })
-      const addresses = await walletClient.requestAddresses()
-      const account: string = addresses[0]
+      const addresses: Address[] = await walletClient.requestAddresses()
+      const account: Address = addresses[0]
       const currentChain = await getCurrentChain(walletClient)
 
       console.log("Processing transaction...")
